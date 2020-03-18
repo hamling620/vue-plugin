@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>router原理history</title>
+</head>
+<body>
+    <a onclick="pushState('/home')">首页</a>
+    <a onclick="pushState('/about')">关于</a>
+    <div id="app"></div>
+    <script>
+        const app = document.querySelector('#app')
+        function pushState (pathname) {
+            history.pushState({}, null, pathname) 
+            app.innerHTML = pathname   
+        }
+        window.addEventListener('popstate', () => {
+            pushState(location.pathname)
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>router原理hash</title>
+</head>
+<body>
+    <a href="#/home">首页</a>
+    <a href="#/about">关于</a>
+    <div id="content"></div>
+    <script>
+        const content = document.querySelector('#content')
+        const homeStr = 'Hello Home Page'
+        const aboutStr = 'Good About Page'
+        function handleHashChange () {
+            const path = location.hash.slice(1)
+            if (path === '/home') {
+                content.innerHTML = homeStr
+            } else if (path === '/about') {
+                content.innerHTML = aboutStr
+            }
+        }
+        window.addEventListener('DOMcontentLoaded', handleHashChange)
+        window.addEventListener('hashchange', handleHashChange)
+    </script>
+</body>
+</html>
