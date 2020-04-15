@@ -48,6 +48,9 @@ class VueRouter {
       })
     }
   }
+
+  // destory
+  // 清除事件绑定
 }
 
 // 使用Vue.use()就会调用 install方法
@@ -63,7 +66,7 @@ VueRouter.install = function (Vue) {
         Vue.util.defineReactive(this, 'xxx', this._router.history)
       } else {
         // 子组件都可以通过_root属性，获取父组件的_root属性
-        this._root = this.$parent._root
+        this._root = this.$parent && this.$parent._root
       }
 
       // 将$router、$route属性混入到每个组件
